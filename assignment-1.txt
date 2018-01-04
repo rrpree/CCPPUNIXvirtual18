@@ -1,0 +1,93 @@
+1.Write a C program to accept two integers and check whether they are equal or not
+#include<stdio.h>
+main()
+{
+int a,b;
+printf("enter values of a,b");
+scanf("%d%d",&a,&b);
+if(a==b)
+  printf("%d and %d are equal",a,b);
+else
+  printf("they are not equal");
+}
+
+=========================================================
+2.Write a C program to check whether a given number is positive or negative
+#include<stdio.h>
+main()
+{
+int a;
+printf("enter values of a");
+scanf("%d",&a);
+if(a>0)
+  printf("%d is a positive number",a);
+else
+  printf("%d is a negative number",a);
+}
+=========================================================
+3.Write a C program to check whether a triangle is Equilateral, Isosceles or Scalene
+#include<stdio.h>
+main()
+{
+  int a,b,c;
+  printf("enter the sides of the triangle"):
+  scanf("%d%d%d",&a,&b,&c);
+  if(a==b && b==c)
+  printf("the triangle is an equilateral triangle");
+  else if((a==b && b!=c)||(a==c && a!=c) ||(b==c && a!=b))
+  printf("the triangle is an isosceles triangle"):
+  else
+  printf("the given triangle is scalene triangle");
+}
+=============================================================
+4.Write a C program to check whether a character is an alphabet, digit or special character
+#include <stdio.h>
+int main()
+{
+    char ch;
+    printf("Enter any character: ");
+    scanf("%c", &ch);
+    if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+      printf("'%c' is alphabet.", ch);
+    else if(ch >= '0' && ch <= '9')
+      printf("'%c' is digit.", ch);
+    else 
+     printf("'%c' is special character.", ch);
+}
+============================================================
+5.Write a program in C to calculate and print the Electricity bill of a given customer. The customer id., name and unit consumed by the user should be taken from the keyboard and display the total amount to pay to the customer. The charge are as follow : Go to the editor
+#include <stdio.h>
+#include <string.h>  
+main()
+{  
+   int custid, conu;
+   float chg, surchg=0, gramt,netamt;
+   char connm[25];
+   printf("Input Customer ID :");
+   scanf("%d",&custid);
+   printf("Input the name of the customer :");
+   scanf("%s",connm);
+   printf("Input the unit consumed by the customer : ");
+   scanf("%d",&conu);
+   if (conu <200 )
+	chg = 1.20;
+   else	if (conu>=200 && conu<400)
+		chg = 1.50;
+	else if (conu>=400 && conu<600)
+			chg = 1.80;
+		else
+			chg = 2.00;
+   gramt = conu*chg;
+   if (gramt>300)
+	surchg = gramt*15/100.0;
+   netamt = gramt+surchg;
+   if (netamt  < 100)
+	netamt =100;
+   printf("\nElectricity Bill\n");
+   printf("Customer IDNO                       :%d\n",custid);
+   printf("Customer Name                       :%s\n",connm);
+   printf("unit Consumed                       :%d\n",conu);
+   printf("Amount Charges @Rs. %4.2f  per unit :%8.2f\n",chg,gramt);
+   printf("Surchage Amount                     :%8.2f\n",surchg);
+   printf("Net Amount Paid By the Customer     :%8.2f\n",netamt);
+}  

@@ -1,0 +1,172 @@
+1) C program to read two numbers from user and add them using pointers. How to find sum of two number 
+   using pointers in C programming. Program to perform arithmetic operations on number using pointers.
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+ float num1, num2;   
+ float *ptr1, *ptr2; 
+ float sum, diff, mult, div;
+ ptr1 = &num1; 
+ ptr2 = &num2; 
+ printf("Enter any two real numbers: ");
+ scanf("%f%f", ptr1, ptr2);
+ sum  = (*ptr1) + (*ptr2);
+ diff = (*ptr1) - (*ptr2);
+ mult = (*ptr1) * (*ptr2);
+ div  = (*ptr1) / (*ptr2);
+ printf("Sum = %.2f\n", sum);
+ printf("Difference = %.2f\n", diff);
+ printf("Product = %.2f\n", mult);
+ printf("Quotient = %.2f\n", div);
+ return 0;
+ getch();    
+}
+
+========================================================================================================
+
+2) C program to swap two numbers using pointers and functions. How to swap two numbers using 
+   call by reference method. Logic to swap two number using pointers in C program.
+
+
+#include<stdio.h>
+#include<conio.h>
+void swap(int *a,int *b)
+{
+ int t;
+ t   = *a;
+ *a   = *b;
+ *b   =  t;
+}
+ 
+int main()
+{
+ int num1,num2;
+ printf("Enter value of num1: ");
+ scanf("%d",&num1);
+ printf("Enter value of num2: ");
+ scanf("%d",&num2);
+ swap(&num1,&num2);
+ printf("After  Swapping: num1=%d, num2=%d\n",num1,num2);    
+ return 0;
+ getch();
+}
+
+=====================================================================================================
+
+3)C program to count total number of words in a string using loop. How to find total number of words 
+  in a given string using loops in C programming. 
+
+#include<stdio.h>
+#include<conio.h>
+#define MAX_SIZE 100
+int main()
+{
+ char str[MAX_SIZE];
+ int i, words;
+ printf("Enter any string: ");
+ gets(str);
+ i = 0;
+ words = 1;
+ while(str[i] != '\0')
+ {
+  if(str[i]==' ' || str[i]=='\n' || str[i]=='\t')
+  {
+   words++;
+  }
+  i++;
+  }
+  printf("Total number of words = %d", words);
+  return 0;
+  getch();
+}
+
+====================================================================================================
+
+4)C program to transfer data from one file to another file.
+  
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+int main()
+{
+ FILE *fptr1, *fptr2;
+ char filename[100], c;
+ printf("Enter the filename to open for reading \n");
+ scanf("%s", filename);
+ fptr1 = fopen(filename, "r");
+ if (fptr1 == NULL)
+ {
+  printf("Cannot open file %s \n", filename);
+  exit(0);
+ }
+ printf("Enter the filename to open for writing \n");
+ scanf("%s", filename);
+ fptr2 = fopen(filename, "w");
+ if (fptr2 == NULL)
+ {
+  printf("Cannot open file %s \n", filename);
+  exit(0);
+ }
+ c = fgetc(fptr1);
+ while (c != EOF)
+ {
+  fputc(c, fptr2);
+  c = fgetc(fptr1);
+ }
+ printf("\nContents copied to %s", filename);
+ fclose(fptr1);
+ fclose(fptr2);
+ return 0;
+ getch();
+}
+===================================================================================================
+
+5)C programs for atoi() function,bool,malloc,calloc,free functions.
+
+using calloc() and free()
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+ int num, i, *ptr, sum = 0;
+ printf("Enter number of elements: ");
+ scanf("%d", &num);
+ ptr = (int*) calloc(num, sizeof(int));
+ if(ptr == NULL)
+ {
+  printf("Error! memory not allocated.");
+  exit(0);
+ }
+  printf("Enter elements of array: ");
+  for(i = 0; i < num; ++i)
+ {
+  scanf("%d", ptr + i);
+  sum += *(ptr + i);
+ }
+  printf("Sum = %d", sum);
+  free(ptr);
+  return 0;
+ }
+
+using atoi() function
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main () {
+   int val;
+   char str[20];
+   strcpy(str, "98993489");
+   val = atoi(str);
+   printf("String value = %s, Int value = %d\n", str, val);
+   strcpy(str, "tutorialspoint.com");
+   val = atoi(str);
+   printf("String value = %s, Int value = %d\n", str, val);
+   return(0);
+}
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
